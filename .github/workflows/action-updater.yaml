@@ -1,29 +1,19 @@
 name: GitHub Actions Version Updater
 
-# Controls when the action will run. 
 on:
-  # can be used to run workflow manually
   workflow_dispatch:
   schedule:
-    # Automatically run on every Sunday
-    - cron:  '0 0 * * 0'
+    - cron: "0 0 * * 0"   # every Sunday
 
 jobs:
-  build:
+  update:
     runs-on: ubuntu-latest
-  
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
-          # Access token with `workflow` scope is required
           token: ${{ secrets.WORKFLOW_SECRET }}
 
       - name: Run GitHub Actions Version Updater
         uses: saadmk11/github-actions-version-updater@v1.0.0
         with:
-          # Access token with `workflow` scope is required
           token: ${{ secrets.WORKFLOW_SECRET }}
-          # Do not update these actions (Optional)
-          # You need to add JSON array inside a string
-          # because GitHub Actions does not yet allow `Lists` as input
-          ignore: '["actions/checkout@v2"]'
