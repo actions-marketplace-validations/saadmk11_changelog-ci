@@ -27,7 +27,7 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-actions = ["github-action-utils>=1.1.0,<2"]
+actions = ["github-action-utils>=1.1.0,<3"]
 
 [project.scripts]
 gh-changelog-ci = "gh_changelog_ci.cli:app"
@@ -41,7 +41,7 @@ Documentation = "https://github.com/saadmk11/changelog-ci#readme"
 test = ["pytest>=9.1.1", "pytest-cov>=7"]
 lint = ["ruff>=0.14"]
 typing = ["mypy>=1.18", "types-PyYAML>=6"]
-build = ["twine>=6", "uv==0.13.1"]
+build = ["twine>=6", "uv==0.13.6"]
 dev = [
   {include-group = "test"},
   {include-group = "lint"},
